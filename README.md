@@ -1,4 +1,4 @@
-#🦑 Banco de dados relacionais (SQL) 🦑
+# 🦑 Banco de dados relacionais (SQL) 🦑
 
 Explorando construção de tabelas, registro e colunas e explorando operações de CRUD e modelagem de dados.
 
