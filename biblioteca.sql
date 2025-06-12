@@ -59,3 +59,12 @@ INSERT INTO membros (data_nasc, nome, telefone) VALUES
     	('2001-08-22', 'Giulia Santos', '(99)32234-2312'),
     	('2003-06-17', 'Sabrina Soares', '(11)93654-6542'),
     	('2014-04-03', 'Marina Juliana', '(21)95437-4322');
+
+INSERT INTO emprestimos (id_livros, id_membros, data_emprestimo, data_devolucao, status) VALUES
+	(1, 1, '2025-06-02', '2025-06-12', 'nao devolvido'),
+    	(2, 4, '2025-05-22', '2025-06-02', 'devolvido'),
+    	(3, 2, '2025-05-15', '2025-05-25', 'nao devolvido'),
+    	(4, 3, '2025-05-25', '2025-06-05', 'devolvido'),
+    	(5, 3, '2025-06-12', '2025-06-22', 'nao devolvido'),
+    	(6, 5, '2025-05-23', '2025-06-03', 'devolvido'),
+    	(7, 6, '2025-04-21', '2025-05-01', 'nao devolvido');
