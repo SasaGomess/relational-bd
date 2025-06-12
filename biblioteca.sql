@@ -41,3 +41,12 @@ INSERT INTO autor(id_autor, nacionalidade, nome) VALUES
   (4,"Espanhol", "Sêneca"),
   (5,"Inglês","William Shakespeare"),
   (6, "Estadunidense","John Wooden");
+
+INSERT INTO livros (id_autor, data_public, genero, titulo) VALUES
+		(1, '1977-05-02','Romance', 'Hora da Estrela'),
+        (1, '1973-06-04', 'Ficção', 'Água viva'),
+        (2, '1937-05-04', 'Romance', 'Capitães de Areia'),
+        (3, '1960-05-03', 'Biografia', 'Quarto de Desejo'),
+        (4, '2016-04-06', 'Filosofia', 'De Tranquililitate Animi'),
+        (5, '1557-11-07', 'Tragédia', 'Romeo e Julieta'),
+        (5, '1623-04-20', 'Drama','Hamlet');
