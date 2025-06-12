@@ -68,3 +68,24 @@ INSERT INTO emprestimos (id_livros, id_membros, data_emprestimo, data_devolucao,
     	(5, 3, '2025-06-12', '2025-06-22', 'nao devolvido'),
     	(6, 5, '2025-05-23', '2025-06-03', 'devolvido'),
     	(7, 6, '2025-04-21', '2025-05-01', 'nao devolvido');
+
+/* SELECT */
+SELECT * FROM autor;
+
+SELECT titulo, data_public FROM livros;
+
+SELECT * FROM membros WHERE telefone LIKE ('(11)%');
+
+SELECT * FROM emprestimos WHERE status = 'nao devolvido';
+
+SELECT titulo AS titulos_por_autores FROM livros lv INNER JOIN autor au  ON lv.id_autor = au.id_autor;
+
+SELECT titulo, nome FROM livros lv INNER JOIN autor au ON lv.id_autor = au.id_autor;
+
+SELECT nome, titulo, data_emprestimo FROM emprestimos es 	
+INNER JOIN membros mb ON es.id_membros = mb.id
+INNER JOIN livros lv ON es.id_livros = lv.isbn; 
+
+SELECT nome, titulo FROM autor LEFT JOIN livros ON autor.id_autor = livros.id_autor;
+
+
