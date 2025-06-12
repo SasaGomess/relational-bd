@@ -32,3 +32,12 @@ CREATE TABLE livros(
   CONSTRAINT fk_livros_autor
   FOREIGN KEY (id_autor) REFERENCES autor (id)
 );
+
+/*INSERT INTO*/
+INSERT INTO autor(id_autor, nacionalidade, nome) VALUES 
+  (1,"Brasileiro", "Clarice Lispector"),
+  (2,"Brasileiro", "Jorge Amado"),
+  (3,"Brasileiro", "Carolina Maria de Jesus"),
+  (4,"Espanhol", "Sêneca"),
+  (5,"Inglês","William Shakespeare"),
+  (6, "Estadunidense","John Wooden");
