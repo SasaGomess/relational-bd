@@ -25,3 +25,7 @@ Explorando construção de tabelas, registro e colunas e explorando operações 
 # Modelagem de Banco de dados
 ⚙️ MER - É representado através de diagramas de DER
 
+# Projeto - Sistema de Biblioteca 📚
+
+
+![Captura de tela 2025-06-12 161113](https://github.com/user-attachments/assets/343f11c8-5f38-4e16-af8b-1d5d335d137b)
