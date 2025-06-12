@@ -43,10 +43,19 @@ INSERT INTO autor(id_autor, nacionalidade, nome) VALUES
   (6, "Estadunidense","John Wooden");
 
 INSERT INTO livros (id_autor, data_public, genero, titulo) VALUES
-		(1, '1977-05-02','Romance', 'Hora da Estrela'),
+	(1, '1977-05-02','Romance', 'Hora da Estrela'),
         (1, '1973-06-04', 'Ficção', 'Água viva'),
         (2, '1937-05-04', 'Romance', 'Capitães de Areia'),
         (3, '1960-05-03', 'Biografia', 'Quarto de Desejo'),
         (4, '2016-04-06', 'Filosofia', 'De Tranquililitate Animi'),
         (5, '1557-11-07', 'Tragédia', 'Romeo e Julieta'),
         (5, '1623-04-20', 'Drama','Hamlet');
+
+INSERT INTO membros (data_nasc, nome, telefone) VALUES
+	('2012-06-20', 'Maria Silvana', '(11)96543-2131'),
+    ('1997-05-22', 'Gabriel Eduardo', '(99)94321-3432'),
+    ('1967-04-30', 'Roberto Mario', '(21)94323-3235'),
+    ('2005-12-03', 'Julia Schmitzz', '(11)94321-4321'),
+    ('2001-08-22', 'Giulia Santos', '(99)32234-2312'),
+    ('2003-06-17', 'Sabrina Soares', '(11)93654-6542'),
+    ('2014-04-03', 'Marina Juliana', '(21)95437-4322');
