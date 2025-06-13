@@ -78,7 +78,7 @@ SELECT * FROM membros WHERE telefone LIKE ('(11)%');
 
 SELECT * FROM emprestimos WHERE status = 'nao devolvido';
 
-SELECT titulo AS titulos_por_autores FROM livros lv INNER JOIN autor au  ON lv.id_autor = au.id_autor;
+SELECT titulo AS titulos_por_autores FROM livros lv INNER JOIN autor au ON lv.id_autor = au.id_autor;
 
 SELECT titulo, nome FROM livros lv INNER JOIN autor au ON lv.id_autor = au.id_autor;
 
@@ -88,4 +88,11 @@ INNER JOIN livros lv ON es.id_livros = lv.isbn;
 
 SELECT nome, titulo FROM autor LEFT JOIN livros ON autor.id_autor = livros.id_autor;
 
+/*SUB CONSULTAS*/
+SELECT titulo FROM livros WHERE id_autor IN(SELECT id_autor FROM autor WHERE nome = 'Clarice Lispector');
 
+SELECT * FROM livros WHERE isbn NOT IN(SELECT id_livros FROM emprestimos);
+
+SELECT nome FROM membros WHERE id IN(SELECT id_membros FROM emprestimos, livros WHERE livros.isbn = emprestimos.id_livros && livros.titulo = "Romeo e Julieta") 
+	
+SELECT nome FROM autor WHERE id_autor IN(SELECT id_autor FROM livros GROUP BY livros.id_autor HAVING SUM(autor.id_autor = livros.id_autor) = 2 )
