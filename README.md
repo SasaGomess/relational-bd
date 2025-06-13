@@ -29,3 +29,7 @@ Explorando construção de tabelas, registro e colunas e explorando operações 
 
 
 ![Captura de tela 2025-06-12 161113](https://github.com/user-attachments/assets/343f11c8-5f38-4e16-af8b-1d5d335d137b)
+
+### 📂 O Script SQL esta localizado no arquivo <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Down%20Medium%20Skin%20Tone.png" alt="Backhand Index Pointing Down Medium Skin Tone" width="25" height="25" /> 
+Acesse o arquivo ````biblioteca.sql````
+### Contribuições e sugestões são sempre bem vindas! <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Cat.png" alt="Grinning Cat" width="35" height="35" /> 
