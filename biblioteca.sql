@@ -91,6 +91,31 @@ INNER JOIN livros lv ON es.id_livros = lv.isbn;
 
 SELECT nome, titulo FROM autor LEFT JOIN livros ON autor.id_autor = livros.id_autor;
 
+
+/*FUNCOES AGREGADORAS*/
+SELECT COUNT(*) AS qtd_livros_cadastrados FROM livros 
+
+SELECT DISTINCT COUNT(*) FROM autor
+
+SELECT COUNT(*) AS qtd_emprestimos FROM emprestimos
+
+SELECT COUNT(*) AS qtd_membros FROM membros
+
+SELECT nome, COUNT(*) FROM autor INNER JOIN livros ON livros.id_autor = autor.id_autor GROUP BY autor.id_autor;
+
+SELECT data_public, COUNT(*) FROM livros GROUP BY data_public;
+	
+SELECT nome, COUNT(*) FROM membros INNER JOIN emprestimos em ON em.id_membros = membros.id GROUP BY id_membros;
+
+SELECT YEAR(data_public), COUNT(*) FROM livros GROUP BY YEAR(data_public);
+
+SELECT YEAR(data_public) AS data_publicacao, COUNT(*) AS livros_publicados FROM livros GROUP BY YEAR(data_public) HAVING COUNT(*) > 1
+	
+SELECT nome, COUNT(*) AS qtd_emprestimos FROM membros INNER JOIN emprestimos ON membros.id = emprestimos.id_membros GROUP BY emprestimos.id_membros HAVING COUNT(*) >= 2; 
+
+SELECT nome, COUNT(*) AS qtd_livros FROM autor INNER JOIN livros ON livros.id_autor = autor.id_autor GROUP BY livros.id_autor HAVING COUNT(*) >= 2; 
+
+
 /*SUB CONSULTAS*/
 SELECT titulo FROM livros WHERE id_autor IN(SELECT id_autor FROM autor WHERE nome = 'Clarice Lispector');
 
@@ -98,7 +123,7 @@ SELECT * FROM livros WHERE isbn NOT IN(SELECT id_livros FROM emprestimos);
 
 SELECT nome FROM membros WHERE id IN(SELECT id_membros FROM emprestimos, livros WHERE livros.isbn = emprestimos.id_livros && livros.titulo = "Romeo e Julieta") 
 	
-SELECT nome FROM autor WHERE id_autor IN(SELECT id_autor FROM livros GROUP BY livros.id_autor HAVING SUM(autor.id_autor = livros.id_autor) = 2 )
+SELECT nome FROM autor WHERE id_autor IN(SELECT id_autor FROM livros GROUP BY livros.id_autor HAVING COUNT(*) >= 2 )
 
 /*ALTER TABLE*/
 
@@ -113,6 +138,6 @@ DELETE FROM emprestimos WHERE data_emprestimo = "2025-05-22" && status = 'devolv
 DELETE FROM autor WHERE id_autor = 6
 	
 EXPLAIN 
-SELECT nome FROM autor WHERE nome = "Jorge Amado"
+	SELECT nome FROM autor WHERE nome = "Jorge Amado" 
 	
 TRUNCATE TABLE emprestimos
