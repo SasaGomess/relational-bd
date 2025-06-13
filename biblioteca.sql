@@ -1,52 +1,55 @@
 /*CREATE*/
 CREATE TABLE autor(
-  id_autor INT PRIMARY KEY,
-  nacionalidade VARCHAR(150),
-  nome VARCHAR(200)
+  id_autor INT PRIMARY KEY AUTO_INCREMENT,
+  nacionalidade VARCHAR(150) NOT NULL,
+  nome VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE membros(
-  id INT PRIMARY KEY,
-  telefone VARCHAR(200),
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  telefone VARCHAR(200) NOT NULL,
   nome VARCHAR(150) NOT NULL,
-  data_nasc DATE
+  data_nasc DATE NOT NULL
 );
 
 CREATE TABLE emprestimos(
-  id INT PRIMARY KEY,
-  id_membros INT,
-  id_livros INT,
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  id_membros INT DELETE ON CASCADE,
+  id_livros INT DELETE ON CASCADE,
   data_emprestimo DATE,
   data_devolucao DATE,
-  status VARCHAR(100) DEFAULT("nao devolvido"),
+  status VARCHAR(100) DEFAULT ("nao devolvido"),
   FOREIGN KEY (id_membros) REFERENCES membros (id),
   FOREIGN KEY (id_livros) REFERENCES livros (isbn)
 );
 
 CREATE TABLE livros(
-  isbn INT PRIMARY KEY,
-  titulo VARCHAR(150) NOT NULL,
+  isbn INT PRIMARY KEY AUTO_INCREMENT,
+  titulo VARCHAR(150) NOT NULL UNIQUE,
   id_autor INT,
   genero VARCHAR(150) NOT NULL,
   data_public DATE,
   CONSTRAINT fk_livros_autor
-  FOREIGN KEY (id_autor) REFERENCES autor (id)
+  FOREIGN KEY (id_autor) REFERENCES autor (id_autor) 
+  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /*INSERT INTO*/
-INSERT INTO autor(id_autor, nacionalidade, nome) VALUES 
-  (1,"Brasileiro", "Clarice Lispector"),
-  (2,"Brasileiro", "Jorge Amado"),
-  (3,"Brasileiro", "Carolina Maria de Jesus"),
-  (4,"Espanhol", "Sêneca"),
-  (5,"Inglês","William Shakespeare"),
-  (6, "Estadunidense","John Wooden");
+INSERT INTO autor(nacionalidade, nome) VALUES 
+  ("Brasileiro", "Clarice Lispector"),
+  ("Brasileiro", "Jorge Amado"),
+  ("Brasileiro", "Carolina Maria de Jesus"),
+  ("Espanhol", "Sêneca"),
+  ("Inglês","William Shakespeare"),
+  ("Estadunidense","John Wooden"),
+  ('Alemão', 'Friedrich Nietzsche');
 
 INSERT INTO livros (id_autor, data_public, genero, titulo) VALUES
 	(1, '1977-05-02','Romance', 'Hora da Estrela'),
         (1, '1973-06-04', 'Ficção', 'Água viva'),
         (2, '1937-05-04', 'Romance', 'Capitães de Areia'),
         (3, '1960-05-03', 'Biografia', 'Quarto de Desejo'),
+        (2, '1936-04-20','Ficção', 'Mar Morto'),
         (4, '2016-04-06', 'Filosofia', 'De Tranquililitate Animi'),
         (5, '1557-11-07', 'Tragédia', 'Romeo e Julieta'),
         (5, '1623-04-20', 'Drama','Hamlet');
