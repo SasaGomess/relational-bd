@@ -99,3 +99,20 @@ SELECT * FROM livros WHERE isbn NOT IN(SELECT id_livros FROM emprestimos);
 SELECT nome FROM membros WHERE id IN(SELECT id_membros FROM emprestimos, livros WHERE livros.isbn = emprestimos.id_livros && livros.titulo = "Romeo e Julieta") 
 	
 SELECT nome FROM autor WHERE id_autor IN(SELECT id_autor FROM livros GROUP BY livros.id_autor HAVING SUM(autor.id_autor = livros.id_autor) = 2 )
+
+/*ALTER TABLE*/
+
+ALTER TABLE livros ADD COLUMN editora VARCHAR(200) NOT NULL
+
+ALTER TABLE membros MODIFY COLUMN telefone VARCHAR(100) NULL
+
+CREATE INDEX idx_titulo ON livros titulo 
+	
+DELETE FROM emprestimos WHERE data_emprestimo = "2025-05-22" && status = 'devolvido'
+
+DELETE FROM autor WHERE id_autor = 6
+	
+EXPLAIN 
+SELECT nome FROM autor WHERE nome = "Jorge Amado"
+	
+TRUNCATE TABLE emprestimos
