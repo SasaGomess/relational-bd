@@ -91,6 +91,10 @@ INNER JOIN livros lv ON es.id_livros = lv.isbn;
 
 SELECT nome, titulo FROM autor LEFT JOIN livros ON autor.id_autor = livros.id_autor;
 
+/*JOINS*/
+SELECT nome FROM autor WHERE autor.id_autor IN(SELECT id_autor FROM livros INNER JOIN emprestimos ON livros.isbn = emprestimos.id_livros GROUP BY id_autor HAVING COUNT(id_autor) >= 3);
+
+SELECT titulo, COUNT(id_livros) AS qtd_emp FROM livros lv INNER JOIN emprestimos em ON em.id_livros = lv.isbn GROUP BY lv.titulo ORDER BY `qtd_emp` DESC
 
 /*FUNCOES AGREGADORAS*/
 SELECT COUNT(*) AS qtd_livros_cadastrados FROM livros 
@@ -110,12 +114,21 @@ SELECT nome, COUNT(*) FROM membros INNER JOIN emprestimos em ON em.id_membros = 
 SELECT YEAR(data_public), COUNT(*) FROM livros GROUP BY YEAR(data_public);
 
 SELECT YEAR(data_public) AS data_publicacao, COUNT(*) AS livros_publicados FROM livros GROUP BY YEAR(data_public) HAVING COUNT(*) > 1
+
+SELECT YEAR(data_public), COUNT(data_public) AS "Anos com mais de 2 publicações" FROM livros GROUP BY YEAR(data_public) HAVING COUNT(data_public) >= 2;
 	
-SELECT nome, COUNT(*) AS qtd_emprestimos FROM membros INNER JOIN emprestimos ON membros.id = emprestimos.id_membros GROUP BY emprestimos.id_membros HAVING COUNT(*) >= 2; 
+SELECT nome, COUNT(id_membros) AS qtd_emprestimos FROM membros mb INNER JOIN emprestimos em ON mb.id = em.id_membros GROUP BY em.id_membros HAVING COUNT(em.id_membros) >= 2
 
-SELECT nome, COUNT(*) AS qtd_livros FROM autor INNER JOIN livros ON livros.id_autor = autor.id_autor GROUP BY livros.id_autor HAVING COUNT(*) >= 2; 
+SELECT nome, COUNT(autor.id_autor) AS qtd_autor_mais_2_livros FROM autor INNER JOIN livros ON livros.id_autor = autor.id_autor GROUP BY livros.id_autor HAVING COUNT(livros.id_autor) >= 2
 
+SELECT MIN(data_public) as livro_mais_antigo FROM livros
 
+SELECT MAX(data_public) as livro_mais_recente FROM livros
+
+SELECT status, MIN(data_emprestimo) AS emprestimo_mais_antigo FROM emprestimos
+
+SELECT status, MAX(data_emprestimo) AS emprestimo_mais_recente FROM emprestimos
+	
 /*SUB CONSULTAS*/
 SELECT titulo FROM livros WHERE id_autor IN(SELECT id_autor FROM autor WHERE nome = 'Clarice Lispector');
 
