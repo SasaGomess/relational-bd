@@ -138,6 +138,8 @@ SELECT nome FROM membros WHERE id IN(SELECT id_membros FROM emprestimos, livros 
 	
 SELECT nome FROM autor WHERE id_autor IN(SELECT id_autor FROM livros GROUP BY livros.id_autor HAVING COUNT(*) >= 2 )
 
+SELECT au.nome, lv.titulo FROM (SELECT id_autor, MIN(data_public) AS data_mais_antiga FROM livros GROUP BY id_autor) AS data_antiga_autor INNER JOIN livros lv ON lv.id_autor = data_antiga_autor.id_autor AND lv.data_public = data_antiga_autor.data_mais_antiga INNER JOIN autor au ON au.id_autor = data_antiga_autor.id_autor;
+
 /*ALTER TABLE*/
 
 ALTER TABLE livros ADD COLUMN editora VARCHAR(200) NOT NULL
