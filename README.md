@@ -28,7 +28,8 @@ Explorando construção de tabelas, registro e colunas e explorando operações 
 # Projeto - Sistema de Biblioteca 📚
 
 
-![Captura de tela 2025-06-12 161113](https://github.com/user-attachments/assets/343f11c8-5f38-4e16-af8b-1d5d335d137b)
+![Captura de tela 2025-06-17 202647](https://github.com/user-attachments/assets/0f3293d1-24ca-43ca-aa8c-d93e12fe7b19)
+
 
 ### 📂 O Script SQL esta localizado no arquivo <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Down%20Medium%20Skin%20Tone.png" alt="Backhand Index Pointing Down Medium Skin Tone" width="25" height="25" /> 
 Acesse o arquivo ````biblioteca.sql````
